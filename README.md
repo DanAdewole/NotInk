@@ -1,5 +1,5 @@
 <div align="center">
-<img src="static/images/NotInkLogo.png" alt="NotInk Logo" style="height: 50px; display: block; margin: 0 auto"/>
+<img src="static/images/NotInkLogo.png" alt="NotInk Logo" style="height: 70px; display: block; margin: 0 auto"/>
 <h1>NotInk</h1>
 </div>
 
