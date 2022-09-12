@@ -1,0 +1,96 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 2.5rem;
+}
+
+
+/* Nav bar */
+
+.navbar {
+	padding: 1.2rem 1rem;
+}
+
+.sign-up {
+	margin-left: 9px;
+}
+
+.home-section {
+	margin-top: 10rem;
+	margin-bottom: 4.5rem;
+}
+
+
+/* Main Section */
+
+.image-title {
+	display: flex;
+	justify-content: center;
+	margin: auto;
+}
+
+.heading {
+	margin: 5rem 0 0 1.5rem;
+}
+
+.subheading {
+	margin: 0.5rem 0 0 1.5rem;
+	font-size: 1.5rem;
+}
+
+.starting-btn {
+	margin: 2rem 0 1.5rem 1.5rem;
+	text-align: center;
+}
+
+
+/* Footer Section */
+
+.footer {
+	text-align: center;
+	padding: 3% 0 3%;
+	background-color: #e4a11b;
+}
+
+.footer-icon {
+	margin: 2.5% 1.5% 2.5%;
+	color: #f1ea9b;
+	width: 50px;
+}
+
+.footer-text {
+	font-size: large;
+}
+
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+
+	.home-section {
+		text-align: center;
+	}
+
+
+	.sign-up {
+		margin-left: 0;
+	}
+
+	.heading {
+		text-align: center;
+	}
+
+	.subheading {
+		text-align: center;
+	}
+/* 
+	.starting-btn {
+		margin: auto;
+		text-align: center;
+
+	} */
+}

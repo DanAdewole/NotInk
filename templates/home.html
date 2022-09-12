@@ -3,6 +3,29 @@
 {% load static %}
 
 {% block content %}
-	{% comment %} <h1>Hello World!</h1> {% endcomment %}
-	{% comment %} <img height="66px" src="{% static 'images/NotInk.png' %}" alt="logo"> {% endcomment %}
+{% comment %} <h1>Testing</h1> {% endcomment %}
+	<section class="home-section">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 main-text">
+				<h1 class="heading">Document More, Achieve More</h1>
+				<p class="subheading">Write down your thoughts anytime, anyday</p>
+				<a class="btn btn-warning btn-lg starting-btn" href="#">Get Started</a>
+			</div>
+
+			<div class="col-lg-6 col-md-6">
+				<img class="image-title" src="{% static 'images/notes-image1.png' %}" alt="notes">
+			</div>
+		</div>
+	</section>
+
 {% endblock content %}
+
+{% block footer %}
+<footer class="container-fluid footer">
+		<a href="#"><i class="fa-brands fa-twitter footer-icon fa-2x"></i></a>
+		<a href="#"><i class="fa-brands fa-facebook-f footer-icon fa-2x"></i></a>
+		<a href="#"><i class="fa-brands fa-instagram footer-icon fa-2x"></i></a>
+		<a href="#"><i class="fa-solid fa-envelope footer-icon fa-2x"></i></a>
+		<p class="footer-text">© Copyright 2022 Daniel</p>
+</footer>
+{% endblock footer %}
