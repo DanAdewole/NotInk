@@ -29,45 +29,9 @@
 	</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg bg-light fixed-top">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="{% url 'home' %}"><img height="50px" src="{% static 'images/NotInk1.png' %}" alt="logo"></a>
+	{% comment %} {% include 'topnav.html' %} {% endcomment %}
 
-			{% comment %} <ul class="navbar-nav ms-auto">
-				<li class="nav-item ">
-						<input class="form-control" type="search" placeholder="Search" aria-label="Search">
-						<!-- <button class="btn btn-outline-warning" type="submit">Search</button> -->
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Daniel
-					</a>
-					<ul class="dropdown-menu dropdown-menu-end">
-						<li><a class="dropdown-item" href="#">Change password</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">Log Out</a></li>
-					</ul>
-				</li>
-			</ul> {% endcomment %}
-
-			<button class="search navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item">
-						<a class="nav-link btn btn-outline-warning m-1" href="#">Sign In</a>
-					</li>
-					<li class="nav-item sign-up">
-						<a class="nav-link btn btn-warning m-1 " href="#">Sign Up</a>
-					</li>
-				</ul>
-			</div>
-			
-		</div>
-	</nav>
-
-	<main  class="container mt-5">
+	<main>
 		{% block content %}
 		{% endblock content %}
 	</main>

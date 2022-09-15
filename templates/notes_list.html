@@ -1,3 +1,46 @@
-{% extends 'base.html' %}
+{% load static %}
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+	<!--Bootstrap CSS-->
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+	<!-- External CSS -->
+	<link rel="stylesheet" href="{% static 'css/styles2.css' %}">
+
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/3a4248ab4f.js" crossorigin="anonymous"></script>
+
+	<!-- site icon -->
+	<link rel="icon" type="image/png" href="{% static 'images/NotInkLogo.png' %}">
+
+	<title>
+		{% block title %}NotInk: My Notes{% endblock title %}
+	</title>
+</head>
+<body>
+
+	{% block content %}
+		{% include 'sidebar.html' %}
+		<div class="home-content">
+			<div class="page-heading bg-light">
+				<h1>All Notes</h1>
+			</div>
+		</div>
+	{% endblock content %}
+
+	<!-- Bootstrap JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% load static %}
+
+<div class="sidebar">
+	<div class="logo-content">
+		<a class="logo" href="{% url 'home' %}">
+			<img src="{% static 'images/NotInkLogo.png' %}" alt="NotInk Logo" height="21px">
+			<div class="logo-name">NotInk</div>
+		</a>
+		<i class="fa-solid fa-bars" id="btn"></i>
+	</div>
+	<ul class="nav-list">
+		<li>
+			<a href="#">
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<input type="text" name="" id="" placeholder="Search...">
+			</a>
+			<span class="tooltip">Search</span>
+		</li>
+		<li>
+			<a href="#">
+				<i class="fa-solid fa-border-all"></i>
+				<span class="links-name">Notes</span>
+			</a>
+			<span class="tooltip">Notes</span>
+		</li>
+		<li>
+			<a href="#">
+				<i class="fa-solid fa-layer-group"></i>
+				<span class="links-name">Labels</span>
+			</a>
+			<span class="tooltip">Labels</span>
+		</li>
+		<li>
+			<a href="#">
+				<i class="fa-solid fa-circle-right"></i>
+				<span class="links-name">Personal</span>
+			</a>
+			<span class="tooltip">Personal</span>
+		</li>
+	</ul>
+	<div class="profile-content">
+		<div class="profile">
+			<div class="profile-details">
+				<i class="fa-solid fa-user"></i>
+				<div class="name-job">
+					<div class="name">Daniel Adewole</div>
+				</div>
+			</div>
+			<a href="#"><i class="fa-solid fa-right-from-bracket" id="log-out"></i></a>
+		</div>
+	</div>
+</div>
+
+<script src="{% static 'js/scripts.js' %}"></script>
