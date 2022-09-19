@@ -1,17 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: "Poppins", sans-serif;
+	font-family: "Montserrat", sans-serif;
 }
 
 body {
 	position: relative;
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	width: 100%;
-	overflow: hidden;
+	overflow: auto;
 }
 
 .sidebar {
@@ -20,7 +21,7 @@ body {
 	left: 0;
 	height: 100%;
 	width: 78px;
-	background: #11101d;
+	background: #f5b603;
 	padding: 6px 14px;
 	transition: all 0.5s ease;
 }
@@ -93,6 +94,7 @@ body {
 	position: absolute;
 	left: 125px;
 	top: 0;
+	z-index: 333;
 	transform: translate(-50%, -50%);
 	border-radius: 6px;
 	height: 35px;
@@ -126,7 +128,7 @@ body {
 	border-radius: 12px;
 	outline: none;
 	border: none;
-	background: #1d1b31;
+	background: #fbc222;
 	padding-left: 50px;
 	font-size: 18px;
 	color: #fff;
@@ -143,7 +145,7 @@ body {
 
 .sidebar ul li .fa-magnifying-glass:hover {
 	background: #fff;
-	color: #1d1b31;
+	color: #fbc222;
 }
 
 .sidebar ul li a {
@@ -157,7 +159,7 @@ body {
 }
 
 .sidebar ul li a:hover {
-	color: #11101d;
+	color: #f5b603;
 	background: #fff;
 }
 
@@ -198,7 +200,7 @@ body {
 }
 
 .sidebar.active .profile-content .profile {
-	background: #1d1b31;
+	background: #fbc222;
 }
 
 .profile-content .profile .profile-details {
@@ -246,7 +248,7 @@ body {
 	border-radius: 12px;
 	text-align: center;
 	transition: all 0.5s ease;
-	background: #1d1b31;
+	background: #fbc222;
 }
 
 .profile #log-out:hover {
@@ -269,25 +271,82 @@ body {
 }
 
 .sidebar .profile-content .profile a:hover {
-	color: #11101d;
+	color: #f5b603;
 	background: #fff;
 }
 
+/* Home Content */
+
 .home-content {
 	position: absolute;
-	height: 100%;
+	/* height: 100%; */
 	width: calc(100% - 78px);
 	left: 78px;
 	transition: all 0.5s ease;
+	overflow: auto;
 }
 
 .home-content .page-heading {
-	font-size: 25px;
-	font-weight: 600;
-	padding: 20px;
+	padding: 20px 35px;
+	background: #fffaed;
+}
+
+.home-content .page-heading h1 {
+	font-size: 45px;
+	font-weight: 700;
 }
 
 .sidebar.active ~ .home-content {
 	width: calc(100% - 240px);
 	left: 240px;
 }
+
+/* Note List */
+
+/* .home-content .notes {
+	padding: 4px;
+	background: #ffe18f;
+	display: flex;
+	justify-content: middle;
+} */
+
+.card {
+	margin: 45px 75px 0;
+}
+
+.card-header {
+	font-size: 20px;
+	font-weight: 400;
+	border: none;
+}
+
+.card-body {
+	background: #fffaed;
+}
+
+.edit-button {
+	text-align: end;
+}
+
+.footer-size {
+	margin-top: 40px;
+}
+
+.notes-option {
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+.notes-category {
+	height: 40px;
+	line-height: 40px;
+}
+
+
+/* Media Queries */
+
+@media (max-width: 748px) {
+	.card {
+		margin: 45px 20px 0;
+	}
+} 
