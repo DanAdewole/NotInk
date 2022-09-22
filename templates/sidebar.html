@@ -43,10 +43,10 @@
 			<div class="profile-details">
 				<i class="fa-solid fa-user"></i>
 				<div class="name-job">
-					<div class="name">Daniel Adewole</div>
+					<div class="name">{{ user.username }}</div>
 				</div>
 			</div>
-			<a href="#"><i class="fa-solid fa-right-from-bracket" id="log-out"></i></a>
+			<a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket" id="log-out"></i></a>
 		</div>
 	</div>
 </div>
