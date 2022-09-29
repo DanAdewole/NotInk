@@ -1,5 +1,7 @@
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +34,10 @@
 			</div>
 			<form method="post" class="auth-form-detail">
 				{% csrf_token %}
-				{{ form.as_p }}
+				{{ form|crispy }}
 				<div class="d-grid gap-2">
-					<button type="submit" class="btn btn-warning btn-block">Sign Up</button>
+					<button type="submit" class="btn btn-warning btn-block mt-2">Sign Up</button>
+					<p class="auth-form-para">Already have an account? <a class="auth-form-link" href="{% url 'login' %}">Sign In</a></p>
 				</div>
 			</form>
 		</div>

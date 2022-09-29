@@ -89,12 +89,19 @@ h1 {
 
 .auth-form-header {
 	text-align: center;
-	padding: 30px;
+	padding: 30px 30px 20px;
 }
 
 .auth-form-detail {
+	padding: 7px 35px 5px;
+}
+
+.auth-form-link {
+	text-decoration: none;
+}
+
+.auth-form-para {
 	text-align: center;
-	padding: 10px 30px 5px;
 }
 
 

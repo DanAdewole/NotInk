@@ -1,5 +1,7 @@
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +34,12 @@
 			</div>
 			<form method="post" class="auth-form-detail">
 				{% csrf_token %}
-				{{ form.as_p }}
+				{{ form|crispy }}
+				<a class="auth-form-link" href="#">Forgot your password?</a>
 				<div class="d-grid gap-2">
-					<button type="submit" class="btn btn-warning">Log In</button>
+					<button type="submit" class="btn btn-warning mt-2">Log In</button>
+					<p class="auth-form-para">New to NotInk? <a class="auth-form-link" href="{% url 'signup' %}"> Create an account</a></p>
+
 				</div>
 			</form>
 		</div>
