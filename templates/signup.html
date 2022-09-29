@@ -18,21 +18,26 @@
 	<!-- External CSS -->
 	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-	<title>Sign in to NotInk . NotInk</title>
+	<!-- site icon -->
+	<link rel="icon" type="image/png" href="{% static 'images/NotInkLogo.png' %}">
+
+	<title>Sign Up - NotInk</title>
 </head>
 <body>
-	<div class="container">
-		<img src="{% static 'images/NotInkLogo.png' %}" alt="NotInk Logo" height="50px">
-	</div>
-	<div class="container">
-		<div class="form-description">
-			Sign up to NotInk
+	<div class="auth-form">
+		<a href="{% url 'home' %}"><img class="auth-form-image" src="{% static 'images/NotInkLogo.png' %}" alt="NotInk Logo"></a>
+		<div class="auth-form-description">
+			<div class="auth-form-header">
+				<h3>Sign up to NotInk</h3>
+			</div>
+			<form method="post" class="auth-form-detail">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<div class="d-grid gap-2">
+					<button type="submit" class="btn btn-warning btn-block">Sign Up</button>
+				</div>
+			</form>
 		</div>
-		<form method="post">
-			{% csrf_token %}
-			{{ form.as_p }}
-			<button type="submit">Sign Up</button>
-		</form>
 	</div>
 
 	<!-- Bootstrap JavaScript Bundle with Popper -->

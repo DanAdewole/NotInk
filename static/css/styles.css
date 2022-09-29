@@ -67,6 +67,37 @@ h1 {
 }
 
 
+/* Form Section */
+
+.auth-form {
+	margin: auto;
+	width: 28rem;
+}
+
+.auth-form-image {
+	height: 60px;
+	margin: 80px 200px 75px;
+	text-align: center;
+}
+
+.auth-form-description {
+	border: 1px solid rgb(195, 195, 195);
+	border-radius: 15px;
+	padding: 15px;
+	margin-bottom: 60px;
+}
+
+.auth-form-header {
+	text-align: center;
+	padding: 30px;
+}
+
+.auth-form-detail {
+	text-align: center;
+	padding: 10px 30px 5px;
+}
+
+
 /* Media Queries */
 
 @media (max-width: 768px) {
