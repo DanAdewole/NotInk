@@ -39,13 +39,13 @@ body {
 	padding-left: 6px;
 	text-decoration: none;
 	opacity: 0;
-	pointer-events: none;
+	pointer-events: visible;
 	transition: all 0.5s ease;
 }
 
 .sidebar.active .logo-content .logo {
 	opacity: 1;
-	pointer-events: none;
+	/* pointer-events: none; */
 }
 
 .logo-content .logo i{
@@ -301,6 +301,8 @@ body {
 	left: 240px;
 }
 
+
+
 /* Note List */
 
 /* .home-content .notes {
@@ -310,7 +312,7 @@ body {
 	justify-content: middle;
 } */
 
-.card {
+/* .card {
 	margin: 45px 75px 0;
 }
 
@@ -340,13 +342,13 @@ body {
 .notes-category {
 	height: 40px;
 	line-height: 40px;
-}
+} */
 
 
 /* Media Queries */
 
-@media (max-width: 748px) {
+/* @media (max-width: 748px) {
 	.card {
 		margin: 45px 20px 0;
 	}
-} 
+}  */

@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
-from telnetlib import LOGOUT
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!r_-u^4lfu&i7zrsr$v-qa)$1z8z*rgahr+=$entw^clbeq_aq'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -48,8 +49,6 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'notes.apps.NotesConfig',
 ]
-
-AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -117,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Lagos'
 
 USE_I18N = True
 
@@ -137,8 +136,31 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# custom user model
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
 LOGIN_REDIRECT_URL = 'notes_list'
 
 LOGOUT_REDIRECT_URL = 'home'
 
+# 3rd party app settings
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# email configuration
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
+print(DEFAULT_FROM_EMAIL)
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+
+EMAIL_USE_TLS = True

@@ -20,8 +20,8 @@ h1 {
 }
 
 .home-section {
-	margin-top: 10rem;
-	margin-bottom: 4.5rem;
+	margin-top: 13rem;
+	margin-bottom: 6.5rem;
 }
 
 
@@ -74,6 +74,10 @@ h1 {
 	width: 28rem;
 }
 
+.auth-form-password-change {
+	padding-top: 5rem;
+}
+
 .auth-form-image {
 	height: 60px;
 	margin: 80px 200px 75px;
@@ -111,6 +115,8 @@ h1 {
 
 	.home-section {
 		text-align: center;
+		margin-top: 10rem;
+	margin-bottom: 4.5rem;
 	}
 
 

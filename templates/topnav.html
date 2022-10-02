@@ -4,23 +4,25 @@
 	<div class="container-fluid">
 		<a class="navbar-brand" href="{% url 'home' %}"><img height="50px" src="{% static 'images/NotInk1.png' %}" alt="logo"></a>
 
-		{% comment %} <ul class="navbar-nav ms-auto">
-			<li class="nav-item ">
+		{% if user.is_authenticated %}
+		<ul class="navbar-nav ms-auto">
+			{% comment %} <li class="nav-item ">
 					<input class="form-control" type="search" placeholder="Search" aria-label="Search">
 					<!-- <button class="btn btn-outline-warning" type="submit">Search</button> -->
-			</li>
+			</li> {% endcomment %}
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Daniel
+					{{ user.username }}
 				</a>
 				<ul class="dropdown-menu dropdown-menu-end">
-					<li><a class="dropdown-item" href="#">Change password</a></li>
+					<li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
 					<li><hr class="dropdown-divider"></li>
-					<li><a class="dropdown-item" href="#">Log Out</a></li>
+					<li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
 				</ul>
 			</li>
-		</ul> {% endcomment %}
+		</ul>
 
+		{% else %}
 		<button class="search navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -34,6 +36,8 @@
 				</li>
 			</ul>
 		</div>
+		{% endif %}
+
 		
 	</div>
 </nav>
