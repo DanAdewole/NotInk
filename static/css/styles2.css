@@ -302,18 +302,23 @@ body {
 }
 
 
-
 /* Note List */
 
-/* .home-content .notes {
+.home-content .notes {
 	padding: 4px;
 	background: #ffe18f;
 	display: flex;
 	justify-content: middle;
-} */
+}
 
-/* .card {
-	margin: 45px 75px 0;
+.card {
+	margin: 45px 20px 20px 0;
+	text-decoration: none;
+	color: #000;
+}
+
+.card:hover {
+	color: rgb(121, 121, 121);
 }
 
 .card-header {
@@ -342,7 +347,33 @@ body {
 .notes-category {
 	height: 40px;
 	line-height: 40px;
-} */
+}
+
+.add-button {
+	position: fixed;
+	bottom: 20px;
+	background: #f5b603;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	/* border: 4px solid white; */
+	left: 87%;
+    transform: translate(-50%, 0);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-button:hover {
+	background: #fbc222;
+}
+
+.add-icon {
+	text-align: center;
+	color: #fff;
+	margin: auto;
+	width: 100%;
+	padding: 5px 0;
+
+}
 
 
 /* Media Queries */
