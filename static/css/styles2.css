@@ -317,7 +317,7 @@ body {
 	color: #000;
 }
 
-.card:hover {
+.card-list:hover {
 	color: rgb(121, 121, 121);
 }
 
@@ -376,10 +376,17 @@ body {
 }
 
 
+/* Detail Page */
+
+.card-detail {
+	margin-left: 45px;
+}
+
+
 /* Media Queries */
 
-/* @media (max-width: 748px) {
-	.card {
+@media (max-width: 748px) {
+	.card-detail {
 		margin: 45px 20px 0;
 	}
-}  */
+} 
