@@ -12,24 +12,26 @@
 
 			<div class="row g-0">
 
+				{% for note in notes %}
 				<div class="col-lg-4 col-md-6">
-					<a href="#" class="card border-0 card-list">
+					<a href="{% url 'notes_detail' note.pk %}" class="card border-0 card-list">
 						<div class="card-header">
-							<h4>First Note</h4>
+							<h4>{{ note.title }}</h4>
 						</div>
 						<div class="card-body">
 							<div class="card-text">
-									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+									{{ note.body }}
 								<div class="text-muted d-flex justify-content-between notes-option">
-									<div class="notes-category">19/04/2022</div>
-									<span class="notes-category">Personal</span>
+									<div class="notes-category">{{ note.date_updated }}</div>
+									<span class="notes-category">{{ note.tag_id }}</span>
 								</div>
 							</div>
 						</div>
 					</a>
 				</div>
+				{% endfor %}
 
-				<div class="col-lg-4 col-md-6">
+				{% comment %} <div class="col-lg-4 col-md-6">
 					<a href="#" class="card border-0 card-list">
 						<div class="card-header">
 							<h4>First Note</h4>
@@ -79,7 +81,7 @@
 							</div>
 						</div>
 					</a>
-				</div>
+				</div> {% endcomment %}
 
 			</div>
 		</div>

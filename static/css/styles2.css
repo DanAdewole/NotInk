@@ -382,11 +382,19 @@ body {
 	margin-left: 45px;
 }
 
+.detail-button {
+	margin-left: 45px;
+}
+
 
 /* Media Queries */
 
 @media (max-width: 748px) {
 	.card-detail {
 		margin: 45px 20px 0;
+	}
+
+	.detail-button {
+		margin: 20px 20px 0;
 	}
 } 

@@ -14,21 +14,26 @@
 
 			<div class="card border-0 card-detail">
 				<div class="card-header bg-warning">
-					First Note
+					{{ note.title }}
 				</div>
 				<div class="card-body">
 					<div class="card-text">
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+							{{ note.body }}
 						<div class="text-muted d-flex justify-content-between notes-option">
-							<div class="notes-category">19/04/2022</div>
-							<span class="notes-category">Personal</span>
-							<div>
-								<a href="#" class="btn btn-warning"><i class="fa-solid fa-pen"></i> </a>
-								<a href="#" class="btn btn-warning"><i class="fa-solid fa-trash"></i></a>
-							</div>
+							<div class="notes-category">{{ note.date_updated }}</div>
+							<span class="notes-category">{{ note.tag_id }}</span>
+						</div>
+						<div class="d-flex justify-content-between notes-option">
+							<a href="#" class="btn btn-warning"><i class="fa-solid fa-pen"></i> </a>
+							<a href="#" class="btn btn-warning"><i class="fa-solid fa-trash"></i></a>
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="detail-button">
+				<a class="btn btn-warning" href="{% url 'notes_list' %}">
+					Go Back
+				</a>
 			</div>
 
 		</div>
