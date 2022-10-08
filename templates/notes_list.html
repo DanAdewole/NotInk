@@ -1,5 +1,7 @@
 {% extends 'app_base.html' %}
 
+{% load humanize %}
+
 {% block content %}
 {% include 'sidebar.html' %}
 	<div class="home-content">
@@ -22,7 +24,7 @@
 							<div class="card-text">
 									{{ note.body }}
 								<div class="text-muted d-flex justify-content-between notes-option">
-									<div class="notes-category">{{ note.date_updated }}</div>
+									<div class="notes-category">{{ note.date_updated|naturaltime }}</div>
 									<span class="notes-category">{{ note.tag_id }}</span>
 								</div>
 							</div>

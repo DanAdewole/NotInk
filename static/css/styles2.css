@@ -384,6 +384,18 @@ body {
 
 .detail-button {
 	margin-left: 45px;
+	color: #fff;
+}
+
+
+/* Update Page */
+
+.edit-form {
+	margin: 10%;
+}
+
+.delete-form {
+	margin: 40px 15px 0;
 }
 
 
@@ -396,5 +408,6 @@ body {
 
 	.detail-button {
 		margin: 20px 20px 0;
+		color: #fff;
 	}
 } 

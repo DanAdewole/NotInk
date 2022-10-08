@@ -1,0 +1,24 @@
+{% extends 'app_base.html' %}
+
+{% block title %}NotInk: Delete{% endblock title %}
+
+{% block content %}
+{% include 'sidebar.html' %}
+	<div class="home-content">
+
+		<div class="page-heading bg-light">
+			<h1>Delete</h1>
+		</div>
+
+		<div class="container">
+			<form class="delete-form" action="" method="post">
+				{% csrf_token %}
+				<p>Are you sure you want to delete "{{ note.title }}"?</p>
+				<a href="{% url 'notes_detail' note.id %}" class="btn btn-warning me-2">Back</a>
+				<button class="btn btn-warning" type="submit">Delete</button>
+			</form>
+		</div>
+
+	</div>
+
+{% endblock content %}
