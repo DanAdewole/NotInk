@@ -34,9 +34,9 @@
 			</div>
 			<form method="post" class="auth-form-detail">
 				{% csrf_token %}
-				{% comment %} {{ form|crispy }} {% endcomment %}
-				{{ form.username|as_crispy_field }}
-				{{ form.password|as_crispy_field }}
+				{{ form|crispy }}
+				{% comment %} {{ form.username|as_crispy_field }} {% endcomment %}
+				{% comment %} {{ form.password|as_crispy_field }} {% endcomment %}
 				<a class="auth-form-link" href="{% url 'password_reset' %}">Forgot your password?</a>
 				<div class="d-grid gap-2">
 					<button type="submit" class="btn btn-warning mt-2">Log In</button>

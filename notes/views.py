@@ -1,11 +1,11 @@
-from webbrowser import get
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, DeleteView
 
 from .models import Note, Tag
+from .forms import NotesCreationForm
 
 
 # class NotesListView(TemplateView):
@@ -41,3 +41,25 @@ class NotesDeleteView(DeleteView):
 	model = Note
 	template_name: str = 'notes_delete.html'
 	success_url = reverse_lazy('notes_list')
+
+
+# class NotesCreateView(CreateView):
+# 	model = Note
+# 	template_name: str = 'notes_new.html'
+# 	fields = ('title', 'body', 'author', 'tag')
+
+
+def notesCreateView(request):
+	form = NotesCreationForm()
+
+	if request.method == "POST":
+		form = NotesCreationForm(request.POST)
+
+		if form.is_valid():
+			instance = form.save(commit=False)
+			instance.author = request.user
+			instance.save()
+			return redirect('notes_detail', instance.id)
+
+	context = {'form': form}
+	return render(request, 'notes_new.html', context)

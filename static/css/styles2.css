@@ -395,8 +395,9 @@ body {
 }
 
 .delete-form {
-	margin: 40px 15px 0;
+	margin: 40px 15px 40px;
 }
+
 
 
 /* Media Queries */
