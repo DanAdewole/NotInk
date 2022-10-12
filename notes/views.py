@@ -8,10 +8,6 @@ from .models import Note, Tag
 from .forms import NotesCreationForm
 
 
-# class NotesListView(TemplateView):
-# 	template_name = 'notes_list.html'
-
-
 def notes_list_view(request):
 	user_id = request.user.id
 	notes = Note.objects.filter(author_id=user_id).order_by('-date_updated')
@@ -25,10 +21,28 @@ def notes_list_view(request):
 	return render(request, 'notes_list.html', context)
 
 
-class NotesDetailView(DetailView):
-	model = Note
-	template_name: str = 'notes_detail.html'
-	context_object_name: str = 'note'
+# class NotesDetailView(DetailView):
+# 	model = Note
+# 	template_name: str = 'notes_detail.html'
+# 	context_object_name: str = 'note'
+
+# 	def get_context_data(self, *args, **kwargs):
+# 		context = super(NotesDetailView, self).get_context_data(*args, **kwargs)
+# 		note_id = self.request.notes.id
+# 		print(note_id)
+# 		# note = Note.objects.filter(author_id=user_id)
+# 		# for note in notes:
+# 		# 	tag_name = Tag.objects.get(id=note.tag_id)
+# 		# 	note.tag_id = tag_name
+
+# 		return context
+
+def notes_detail_view(request, pk):
+	note = Note.objects.get(id=pk)
+	tag_name = Tag.objects.get(id=note.tag_id)
+	note.tag_id = tag_name
+	context = {'note': note}
+	return render(request, 'notes_detail.html', context)
 
 
 class NotesUpdateView(UpdateView):

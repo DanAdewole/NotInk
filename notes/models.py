@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
+from .fields import NonStrippingTextField
+
 
 class Tag(models.Model):
 	name = models.CharField(max_length=15)
@@ -11,7 +13,7 @@ class Tag(models.Model):
 
 class Note(models.Model):
 	title = models.CharField(max_length=200)
-	body = models.TextField()
+	body = NonStrippingTextField()
 	author = models.ForeignKey(
 		get_user_model(),
 		on_delete=models.CASCADE,
