@@ -10,6 +10,7 @@ from .views import (
 	tag_list_view,
 	TagUpdateView,
 	TagDeleteView,
+	TagCreateView,
 )
 
 urlpatterns = [
@@ -23,5 +24,6 @@ urlpatterns = [
 	path('labels/', tag_list_view, name="label_list"),
 	path('labels/<int:pk>/edit/', TagUpdateView.as_view(), name="label_update"),
 	path('labels/<int:pk>/delete/', TagDeleteView.as_view(), name='label_delete'),
+	path('labels/new/', TagCreateView.as_view(), name='label_new'),
 ]
 

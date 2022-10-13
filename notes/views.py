@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
 
 from .models import Note, Tag
 from .forms import NotesCreationForm
@@ -82,7 +82,8 @@ def notesCreateView(request):
 
 # Views catering for Labels
 def tag_list_view(request):
-	tags = Tag.objects.all()
+	user_id = request.user.id
+	tags = Tag.objects.filter(user_id=user_id)
 	context = {'tags': tags}
 	return render(request, 'labels.html', context)
 
@@ -96,4 +97,15 @@ class TagUpdateView(UpdateView):
 class TagDeleteView(DeleteView):
 	model = Tag
 	template_name: str = 'labels_delete.html'
-	
+	success_url = reverse_lazy('label_list')
+
+
+class TagCreateView(CreateView):
+	model = Tag
+	template_name: str = 'labels_new.html'
+	fields = ('name',)
+
+	def form_valid(self, form):
+		form.instance.user = self.request.user
+		return super().form_valid(form)
+
