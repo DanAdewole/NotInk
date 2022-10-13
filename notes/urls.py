@@ -7,7 +7,7 @@ from .views import (
 	notes_list_view, 
 	NotesUpdateView, 
 	notesCreateView,
-	
+	tag_list_view,
 )
 
 urlpatterns = [
@@ -16,5 +16,8 @@ urlpatterns = [
 	path('<int:pk>/edit/', NotesUpdateView.as_view(), name='notes_update'),
 	path('<int:pk>/delete/', NotesDeleteView.as_view(), name='notes_delete'),
 	path('new/', notesCreateView, name='notes_new'),
+
+	#models
+	path('labels/', tag_list_view, name="label_list"),
 ]
 

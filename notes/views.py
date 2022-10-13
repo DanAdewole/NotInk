@@ -77,3 +77,11 @@ def notesCreateView(request):
 
 	context = {'form': form}
 	return render(request, 'notes_new.html', context)
+
+# Views catering for Labels
+def tag_list_view(request):
+	tags = Tag.objects.all()
+	context = {'tags': tags}
+	return render(request, 'labels.html', context)
+
+

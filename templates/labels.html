@@ -1,0 +1,49 @@
+{% extends 'app_base.html' %}
+
+{% block title %}
+	NotInk: Labels
+{% endblock title %}
+
+{% block content %}
+	{% include 'sidebar.html' %}
+
+	<div class="home-content">
+
+		<div class="page-heading bg-light">
+			<h1>Labels</h1>
+		</div>
+
+		<div class="container">
+
+			<div class="row g-0">
+
+				{% for tag in tags %}
+				<div class="col-lg-4 col-md-6">
+
+					<div class="card border-0 card-list">
+						<div class="card-header">
+							{{ tag.name }}
+						</div>
+						<div class="card-body">
+							
+							<div class="d-flex justify-content-between notes-option">
+								<a href="#" class="btn btn-warning"><i class="fa-solid fa-pen add-icon"></i> </a>
+								<a href="#" class="btn btn-warning"><i class="fa-solid fa-trash add-icon"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+			<div class="footer-size"></div>
+	
+			<a href="#" class="add-button">
+				<i class="fa-solid fa-plus fa-3x add-icon"></i>
+			</a>
+			
+		</div>
+		
+	</div>
+
+{% endblock content %}
