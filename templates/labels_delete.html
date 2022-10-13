@@ -1,0 +1,27 @@
+{% extends 'app_base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}NotInk: Label Update{% endblock title %}
+
+{% block content %}
+	{% include 'sidebar.html' %}
+
+	<div class="home-content">
+		<div class="page-heading bg-light">
+			Delete Label
+		</div>
+
+		<div class="container">
+			<form class="edit-form" action="" method="post">
+				{% csrf_token %}
+				<p>Are you sure you want to delete "{{ tag.name }}"?</p>
+				<p>All notes associated with the tag name would get deleted permanently.</p>
+				<a href="{% url 'label_list' %}" class="btn btn-warning me-2">Back</a>
+				<button class="btn btn-warning" type="submit">Delete</button>
+				
+			</form>
+		</div>
+
+	</div>
+{% endblock content %}

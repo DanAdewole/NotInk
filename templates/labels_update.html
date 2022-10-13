@@ -1,0 +1,29 @@
+{% extends 'app_base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}NotInk: Label Update{% endblock title %}
+
+{% block content %}
+	{% include 'sidebar.html' %}
+
+	<div class="home-content">
+		
+		<div class="page-heading bg-light">
+			Edit Label
+		</div>
+
+		<div class="container">
+			<form class="edit-form" action="" method="post">
+				{% csrf_token %}
+				{{ form|crispy }}
+				<div class="d-flex justify-content-between notes-option">
+					<a href="{% url 'label_list' %}" class="btn btn-warning">Back</a>
+					<button class="btn btn-warning" type="submit">Update</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+{% endblock content %}

@@ -1,3 +1,4 @@
+from this import d
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -78,6 +79,7 @@ def notesCreateView(request):
 	context = {'form': form}
 	return render(request, 'notes_new.html', context)
 
+
 # Views catering for Labels
 def tag_list_view(request):
 	tags = Tag.objects.all()
@@ -85,3 +87,13 @@ def tag_list_view(request):
 	return render(request, 'labels.html', context)
 
 
+class TagUpdateView(UpdateView):
+	model = Tag
+	template_name: str = 'labels_update.html'
+	fields = ('name',)
+
+
+class TagDeleteView(DeleteView):
+	model = Tag
+	template_name: str = 'labels_delete.html'
+	

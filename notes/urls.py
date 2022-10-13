@@ -8,6 +8,8 @@ from .views import (
 	NotesUpdateView, 
 	notesCreateView,
 	tag_list_view,
+	TagUpdateView,
+	TagDeleteView,
 )
 
 urlpatterns = [
@@ -17,7 +19,9 @@ urlpatterns = [
 	path('<int:pk>/delete/', NotesDeleteView.as_view(), name='notes_delete'),
 	path('new/', notesCreateView, name='notes_new'),
 
-	#models
+	#labels
 	path('labels/', tag_list_view, name="label_list"),
+	path('labels/<int:pk>/edit/', TagUpdateView.as_view(), name="label_update"),
+	path('labels/<int:pk>/delete/', TagDeleteView.as_view(), name='label_delete'),
 ]
 

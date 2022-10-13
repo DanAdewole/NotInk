@@ -25,10 +25,9 @@
 							{{ tag.name }}
 						</div>
 						<div class="card-body">
-							
 							<div class="d-flex justify-content-between notes-option">
-								<a href="#" class="btn btn-warning"><i class="fa-solid fa-pen add-icon"></i> </a>
-								<a href="#" class="btn btn-warning"><i class="fa-solid fa-trash add-icon"></i></a>
+								<a href="{% url 'label_update' tag.id %}" class="btn btn-warning"><i class="fa-solid fa-pen add-icon"></i> </a>
+								<a href="{% url 'label_delete' tag.id %}" class="btn btn-warning"><i class="fa-solid fa-trash add-icon"></i></a>
 							</div>
 						</div>
 					</div>
