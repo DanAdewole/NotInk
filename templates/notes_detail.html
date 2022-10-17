@@ -18,7 +18,7 @@
 				</div>
 				<div class="card-body">
 					<div class="card-text">
-							{{ note.body }}
+							{{ note.body|linebreaks }}
 						<div class="text-muted d-flex justify-content-between notes-option">
 							<div class="notes-category">{{ note.date_updated }}</div>
 							<span class="notes-category">{{ note.tag_id }}</span>
