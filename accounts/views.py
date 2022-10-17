@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth import login
+from django.views.decorators.csrf import csrf_exempt
 
 from .forms import CustomUserCreationForm
+from notes.models import Tag
 
 
 # class SignUpView(CreateView):
@@ -20,6 +22,10 @@ def sign_up_view(request):
 		if form.is_valid():
 			user = form.save()
 			login(request, user)
+
+			current_user = request.user
+			Tag.objects.create(name="General", user=current_user).save()
+
 			return redirect('notes_list')
 
 	context = {'form': form}

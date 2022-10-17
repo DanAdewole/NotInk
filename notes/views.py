@@ -1,4 +1,4 @@
-from this import d
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -22,22 +22,6 @@ def notes_list_view(request):
 	return render(request, 'notes_list.html', context)
 
 
-# class NotesDetailView(DetailView):
-# 	model = Note
-# 	template_name: str = 'notes_detail.html'
-# 	context_object_name: str = 'note'
-
-# 	def get_context_data(self, *args, **kwargs):
-# 		context = super(NotesDetailView, self).get_context_data(*args, **kwargs)
-# 		note_id = self.request.notes.id
-# 		print(note_id)
-# 		# note = Note.objects.filter(author_id=user_id)
-# 		# for note in notes:
-# 		# 	tag_name = Tag.objects.get(id=note.tag_id)
-# 		# 	note.tag_id = tag_name
-
-# 		return context
-
 def notes_detail_view(request, pk):
 	note = Note.objects.get(id=pk)
 	tag_name = Tag.objects.get(id=note.tag_id)
@@ -46,16 +30,26 @@ def notes_detail_view(request, pk):
 	return render(request, 'notes_detail.html', context)
 
 
-class NotesUpdateView(UpdateView):
+class NotesUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	model = Note
 	template_name: str = 'notes_update.html'
 	fields = ('title', 'body')
+	login_url = 'login'
+
+	def test_func(self):
+		obj = self.get_object()
+		return obj.author == self.request.user
 
 
-class NotesDeleteView(DeleteView):
+class NotesDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 	model = Note
 	template_name: str = 'notes_delete.html'
 	success_url = reverse_lazy('notes_list')
+	login_url = 'login'
+
+	def test_func(self):
+		obj = self.get_object()
+		return obj.author == self.request.user
 
 
 # class NotesCreateView(CreateView):
@@ -66,9 +60,13 @@ class NotesDeleteView(DeleteView):
 
 def notesCreateView(request):
 	form = NotesCreationForm()
+	current_user = request.user
+	form.fields["tag"].queryset = Tag.objects.filter(user_id=current_user.id)
 
 	if request.method == "POST":
 		form = NotesCreationForm(request.POST)
+		current_user = request.user
+		form.fields["tag"].queryset = Tag.objects.filter(user_id=current_user.id)
 
 		if form.is_valid():
 			instance = form.save(commit=False)
@@ -88,22 +86,33 @@ def tag_list_view(request):
 	return render(request, 'labels.html', context)
 
 
-class TagUpdateView(UpdateView):
+class TagUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	model = Tag
 	template_name: str = 'labels_update.html'
 	fields = ('name',)
+	login_url = 'login'
+
+	def test_func(self):
+		obj = self.get_object()
+		return obj.user == self.request.user
 
 
-class TagDeleteView(DeleteView):
+class TagDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 	model = Tag
 	template_name: str = 'labels_delete.html'
 	success_url = reverse_lazy('label_list')
+	login_url = 'login'
+
+	def test_func(self):
+		obj = self.get_object()
+		return obj.user == self.request.user
 
 
-class TagCreateView(CreateView):
+class TagCreateView(LoginRequiredMixin, CreateView):
 	model = Tag
 	template_name: str = 'labels_new.html'
 	fields = ('name',)
+	login_url = 'login'
 
 	def form_valid(self, form):
 		form.instance.user = self.request.user
