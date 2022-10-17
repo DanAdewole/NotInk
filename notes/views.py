@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -9,6 +10,7 @@ from .models import Note, Tag
 from .forms import NotesCreationForm
 
 
+@login_required
 def notes_list_view(request):
 	user_id = request.user.id
 	notes = Note.objects.filter(author_id=user_id).order_by('-date_updated')
@@ -22,6 +24,7 @@ def notes_list_view(request):
 	return render(request, 'notes_list.html', context)
 
 
+@login_required
 def notes_detail_view(request, pk):
 	note = Note.objects.get(id=pk)
 	tag_name = Tag.objects.get(id=note.tag_id)
@@ -58,6 +61,7 @@ class NotesDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 # 	fields = ('title', 'body', 'author', 'tag')
 
 
+@login_required
 def notesCreateView(request):
 	form = NotesCreationForm()
 	current_user = request.user
@@ -79,6 +83,7 @@ def notesCreateView(request):
 
 
 # Views catering for Labels
+@login_required
 def tag_list_view(request):
 	user_id = request.user.id
 	tags = Tag.objects.filter(user_id=user_id)
@@ -92,6 +97,7 @@ class TagUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	fields = ('name',)
 	login_url = 'login'
 
+	# user passes test mixin parameter
 	def test_func(self):
 		obj = self.get_object()
 		return obj.user == self.request.user
@@ -103,6 +109,7 @@ class TagDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 	success_url = reverse_lazy('label_list')
 	login_url = 'login'
 
+	# user passes test mixin parameter
 	def test_func(self):
 		obj = self.get_object()
 		return obj.user == self.request.user
@@ -114,6 +121,7 @@ class TagCreateView(LoginRequiredMixin, CreateView):
 	fields = ('name',)
 	login_url = 'login'
 
+	# automatically save current user as author
 	def form_valid(self, form):
 		form.instance.user = self.request.user
 		return super().form_valid(form)
