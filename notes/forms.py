@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from .models import Note, Tag
+from .models import Note
 
 
 class NotesCreationForm(ModelForm):
