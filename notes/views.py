@@ -155,11 +155,17 @@ class SearchResultsView(LoginRequiredMixin, ListView):
 
 	def get_queryset(self):
 		query = self.request.GET.get("q", None)
-		print(query)
 		current_user = self.request.user
 		context = Note.objects.filter(
 			author_id=current_user.id
 		).filter(
 			Q(title__icontains=query) | Q(body__icontains=query)
 		)
+
+		for note in context:
+			if len(note.body) > 40:
+				note.body = f"{note.body[:40]}..."
+			tag_name = Tag.objects.get(id=note.tag_id)
+			note.tag_id = tag_name
+			
 		return context
