@@ -1,5 +1,7 @@
 {% load static %}
 
+{% comment %} {% load tag_sidebar %} {% endcomment %}
+
 <div class="sidebar">
 	<div class="logo-content">
 		<a class="logo" href="{% url 'home' %}">
@@ -26,17 +28,21 @@
 		<li>
 			<a href="{% url 'label_list' %}">
 				<i class="fa-solid fa-layer-group"></i>
-				<span class="links-name">Labels</span>
+				<span class="links-name">All Labels</span>
 			</a>
-			<span class="tooltip">Labels</span>
+			<span class="tooltip">All Labels</span>
 		</li>
+
+		{% for tag in tags %}
 		<li>
 			<a href="#">
 				<i class="fa-solid fa-circle-right"></i>
-				<span class="links-name">Personal</span>
+				<span class="links-name">{{ tag.name }}</span>
 			</a>
-			<span class="tooltip">Personal</span>
+			<span class="tooltip">{{ tag.name }}</span>
 		</li>
+		{% endfor %}
+
 	</ul>
 	<div class="profile-content">
 		<div class="profile">
