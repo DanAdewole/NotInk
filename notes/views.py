@@ -126,3 +126,22 @@ class TagCreateView(LoginRequiredMixin, CreateView):
 		form.instance.user = self.request.user
 		return super().form_valid(form)
 
+
+# views for sidebar label list
+@login_required
+def tag_filter_list_view(request, tag):
+	current_user = request.user
+	tag_id = Tag.objects.get(name=tag, user_id=current_user.id)
+	notes = Note.objects.filter(tag_id=tag_id)
+	
+	for note in notes:
+		if len(note.body) > 40:
+			note.body = f"{note.body[:40]}..."
+		tag_name = Tag.objects.get(id=note.tag_id)
+		note.tag_id = tag_name
+
+	context = {
+		'notes': notes,
+		'tag': tag,
+	}
+	return render(request, 'labels_filter_list.html', context)

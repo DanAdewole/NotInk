@@ -34,13 +34,13 @@
 		</li>
 
 		{% for tag in tags %}
-		<li>
-			<a href="#">
-				<i class="fa-solid fa-circle-right"></i>
-				<span class="links-name">{{ tag.name }}</span>
-			</a>
-			<span class="tooltip">{{ tag.name }}</span>
-		</li>
+			<li>
+				<a href="{% url 'label_filter_view' tag.name %}">
+					<i class="fa-solid fa-circle-right"></i>
+					<span class="links-name">{{ tag.name }}</span>
+				</a>
+				<span class="tooltip">{{ tag.name }}</span>
+			</li>
 		{% endfor %}
 
 	</ul>

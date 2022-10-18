@@ -1,0 +1,50 @@
+{% extends 'app_base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+	{% include 'sidebar.html' %}
+	
+	<div class="home-content">
+
+		<div class="page-heading bg-light">
+			<h1>{{ tag }}</h1>
+		</div>
+
+		<div class="container">
+
+			<div class="row g-0">
+
+				{% for note in notes %}
+				<div class="col-lg-4 col-md-6">
+					<a href="{% url 'notes_detail' note.pk %}" class="card border-0 card-list">
+						<div class="card-header">
+							<h4>{{ note.title }}</h4>
+						</div>
+						<div class="card-body">
+							<div class="card-text">
+									{{ note.body }}
+								<div class="text-muted d-flex justify-content-between notes-option">
+									<div class="notes-category">{{ note.date_updated|naturaltime }}</div>
+									<span class="notes-category">{{ note.tag_id }}</span>
+								</div>
+
+							</div>
+						</div>
+					</a>
+				</div>
+				{% endfor %}
+
+			</div>
+		</div>
+
+		<div class="footer-size"></div>
+
+		{% comment %} <a href="{% url 'notes_new' %}" class="add-button">
+			<i class="fa-solid fa-plus fa-3x add-icon"></i>
+		</a> {% endcomment %}
+	
+	</div>
+
+
+{% endblock content %}
