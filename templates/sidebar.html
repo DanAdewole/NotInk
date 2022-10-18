@@ -12,21 +12,21 @@
 	</div>
 	<ul class="nav-list">
 		<li>
-			<a href="#">
+			<form action="{% url 'search_results' %}" method="get" class="sidebar-link">
 				<i class="fa-solid fa-magnifying-glass"></i>
-				<input type="text" name="" id="" placeholder="Search...">
-			</a>
+				<input name="q" type="text" placeholder="Search...">
+			</form>
 			<span class="tooltip">Search</span>
 		</li>
 		<li>
-			<a href="{% url 'notes_list' %}">
+			<a href="{% url 'notes_list' %}" class="sidebar-link">
 				<i class="fa-solid fa-border-all"></i>
 				<span class="links-name">All Notes</span>
 			</a>
 			<span class="tooltip">Notes</span>
 		</li>
 		<li>
-			<a href="{% url 'label_list' %}">
+			<a href="{% url 'label_list' %}" class="sidebar-link">
 				<i class="fa-solid fa-layer-group"></i>
 				<span class="links-name">All Labels</span>
 			</a>
@@ -35,7 +35,7 @@
 
 		{% for tag in tags %}
 			<li>
-				<a href="{% url 'label_filter_view' tag.name %}">
+				<a href="{% url 'label_filter_view' tag.name %}" class="sidebar-link">
 					<i class="fa-solid fa-circle-right"></i>
 					<span class="links-name">{{ tag.name }}</span>
 				</a>

@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
+from django.db.models import Q
 
 from .models import Note, Tag
 from .forms import NotesCreationForm
@@ -133,7 +134,7 @@ def tag_filter_list_view(request, tag):
 	current_user = request.user
 	tag_id = Tag.objects.get(name=tag, user_id=current_user.id)
 	notes = Note.objects.filter(tag_id=tag_id)
-	
+
 	for note in notes:
 		if len(note.body) > 40:
 			note.body = f"{note.body[:40]}..."
@@ -145,3 +146,20 @@ def tag_filter_list_view(request, tag):
 		'tag': tag,
 	}
 	return render(request, 'labels_filter_list.html', context)
+
+
+class SearchResultsView(LoginRequiredMixin, ListView):
+	model = Note
+	template_name: str = 'search_results.html'
+	context_object_name = 'search_results'
+
+	def get_queryset(self):
+		query = self.request.GET.get("q", None)
+		print(query)
+		current_user = self.request.user
+		context = Note.objects.filter(
+			author_id=current_user.id
+		).filter(
+			Q(title__icontains=query) | Q(body__icontains=query)
+		)
+		return context

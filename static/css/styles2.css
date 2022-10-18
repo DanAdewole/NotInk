@@ -148,7 +148,7 @@ body {
 	color: #fbc222;
 }
 
-.sidebar ul li a {
+.sidebar ul li .sidebar-link {
 	color: #fff;
 	display: flex;
 	align-items: center;
@@ -158,7 +158,7 @@ body {
 	white-space: nowrap;
 }
 
-.sidebar ul li a:hover {
+.sidebar ul li .sidebar-link:hover {
 	color: #f5b603;
 	background: #fff;
 }

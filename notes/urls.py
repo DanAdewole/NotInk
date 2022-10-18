@@ -12,6 +12,7 @@ from .views import (
 	TagDeleteView,
 	TagCreateView,
 	tag_filter_list_view,
+	SearchResultsView,
 )
 
 urlpatterns = [
@@ -27,6 +28,10 @@ urlpatterns = [
 	path('labels/<int:pk>/delete/', TagDeleteView.as_view(), name='label_delete'),
 	path('labels/new/', TagCreateView.as_view(), name='label_new'),
 
+	#sidebar tags
 	path('labels/<str:tag>/', tag_filter_list_view, name="label_filter_view"),
+
+	#search results
+	path('search/', SearchResultsView.as_view(), name="search_results"),
 ]
 
