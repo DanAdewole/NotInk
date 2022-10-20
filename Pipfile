@@ -9,6 +9,7 @@ python-dotenv = "*"
 django-crispy-forms = "*"
 django-filter = "*"
 psycopg2 = "*"
+whitenoise = "*"
 
 [dev-packages]
 
