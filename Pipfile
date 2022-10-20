@@ -8,6 +8,7 @@ django = "*"
 python-dotenv = "*"
 django-crispy-forms = "*"
 django-filter = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
