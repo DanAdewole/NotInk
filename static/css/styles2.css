@@ -93,8 +93,8 @@ body {
 .sidebar ul li .tooltip {
 	position: absolute;
 	left: 125px;
-	top: 0;
-	z-index: 333;
+	top: 100%;
+	z-index: 4;
 	transform: translate(-50%, -50%);
 	border-radius: 6px;
 	height: 35px;
@@ -284,6 +284,7 @@ body {
 	left: 78px;
 	transition: all 0.5s ease;
 	overflow: auto;
+	z-index: -1;
 }
 
 .home-content .page-heading {
