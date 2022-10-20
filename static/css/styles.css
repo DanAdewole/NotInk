@@ -109,6 +109,15 @@ h1 {
 }
 
 
+/* Error Page */
+
+.error-page {
+	background-color: #f5b603;
+	color: #fff;
+	text-align: center;
+}
+
+
 /* Media Queries */
 
 @media (max-width: 768px) {

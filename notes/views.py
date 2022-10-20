@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -18,7 +18,8 @@ def notes_list_view(request):
 	for note in notes:
 		if len(note.body) > 40:
 			note.body = f"{note.body[:40]}..."
-		tag_name = Tag.objects.get(id=note.tag_id)
+		tag_name = get_object_or_404(Tag, id=note.tag_id)
+		# tag_name = Tag.objects.get(id=note.tag_id)
 		note.tag_id = tag_name
 	
 	context = {'notes': notes}
@@ -169,3 +170,10 @@ class SearchResultsView(LoginRequiredMixin, ListView):
 			note.tag_id = tag_name
 			
 		return context
+
+
+def error_404_view(request, exception):
+	return render(request, '404.html')
+
+def error_500_view(request):
+	return render(request, '500.html')

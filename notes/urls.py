@@ -33,5 +33,9 @@ urlpatterns = [
 
 	#search results
 	path('search/', SearchResultsView.as_view(), name="search_results"),
+
 ]
+
+handler404 = 'notes.views.error_404_view'
+handler500 = 'notes.views.error_500_view'
 

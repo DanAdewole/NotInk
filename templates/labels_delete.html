@@ -16,7 +16,7 @@
 			<form class="edit-form" action="" method="post">
 				{% csrf_token %}
 				<p>Are you sure you want to delete "{{ tag.name }}"?</p>
-				<p class="red">All notes associated with the tag name would get deleted permanently.</p>
+				<p class="red">All notes associated with the label name would get deleted permanently.</p>
 				<a href="{% url 'label_list' %}" class="btn btn-warning me-2">Back</a>
 				<button class="btn btn-warning" type="submit">Delete</button>
 				
