@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = config("SECRET_KEY", default='django-insecure-!r_-u^4lfu&i7zrsr$v-qa)$1z8z*rgahr+=$entw^clbeq_aq')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     'crispy_forms',
+    'django_extensions',
 
     # installed apps
     'accounts.apps.AccountsConfig',
