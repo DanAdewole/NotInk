@@ -376,6 +376,11 @@ body {
 
 }
 
+.empty-data {
+	font-size: 2rem;
+	padding: 3rem 0;
+}
+
 
 /* Detail Page */
 

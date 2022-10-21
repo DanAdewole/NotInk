@@ -17,22 +17,31 @@
 
 			<div class="row g-0">
 
-				{% for tag in tags %}
-				<div class="col-lg-4 col-md-6">
+				{% if tags|length == 0 %}
 
-					<div class="card border-0 card-list">
-						<div class="card-header">
-							{{ tag.name }}
-						</div>
-						<div class="card-body">
-							<div class="d-flex justify-content-between notes-option">
-								<a href="{% url 'label_update' tag.id %}" class="btn btn-warning"><i class="fa-solid fa-pen add-icon"></i> </a>
-								<a href="{% url 'label_delete' tag.id %}" class="btn btn-warning"><i class="fa-solid fa-trash add-icon"></i></a>
+					<p class="empty-data text-muted">No labels here yet...</p>
+
+				{% else %}
+				
+					{% for tag in tags %}
+					<div class="col-lg-4 col-md-6">
+
+						<div class="card border-0 card-list">
+							<div class="card-header">
+								{{ tag.name }}
+							</div>
+							<div class="card-body">
+								<div class="d-flex justify-content-between notes-option">
+									<a href="{% url 'label_update' tag.id %}" class="btn btn-warning"><i class="fa-solid fa-pen add-icon"></i> </a>
+									<a href="{% url 'label_delete' tag.id %}" class="btn btn-warning"><i class="fa-solid fa-trash add-icon"></i></a>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				{% endfor %}
+					{% endfor %}
+
+				{% endif %}
+				
 			</div>
 
 			<div class="footer-size"></div>
