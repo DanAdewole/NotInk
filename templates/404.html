@@ -22,11 +22,17 @@
 	<link rel="icon" type="image/png" href="{% static 'images/NotInkLogo.png' %}">
 
 	<title>404 Page</title>
+
 </head>
-<body>
-	<div class="container error-page">
-		<h1>404</h1>
-		<p>You've sent a bad request</p>
+
+<body class="error-page">
+
+		<div class="container">
+			<img src="{% static 'images/' %}" alt="">
+			<h1 class="error-page-heading">404</h1>
+			<p class="error-page-body">WE ARE SORRY, BUT THE PAGE YOU REQUESTED FOR COULD NOT BE FOUND</p>
+			<a href="{% url 'notes_list' %}" class="btn btn-light btn-lg">Go Back</a>
+		</div>
 	</div>
 
 	<!-- Bootstrap JavaScript Bundle with Popper -->

@@ -112,9 +112,9 @@ h1 {
 /* Error Page */
 
 .error-page {
-	background-color: #f5b603;
-	color: #fff;
+	background-color: #fad670;
 	text-align: center;
+	justify-content: center;
 }
 
 
