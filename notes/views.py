@@ -18,6 +18,8 @@ def notes_list_view(request):
 	for note in notes:
 		if len(note.body) > 40:
 			note.body = f"{note.body[:40]}..."
+		if len(note.title) > 20:
+			note.title = f"{note.title[:20]}..."
 		tag_name = get_object_or_404(Tag, id=note.tag_id)
 		# tag_name = Tag.objects.get(id=note.tag_id)
 		note.tag_id = tag_name
@@ -134,11 +136,13 @@ class TagCreateView(LoginRequiredMixin, CreateView):
 def tag_filter_list_view(request, tag):
 	current_user = request.user
 	tag_id = Tag.objects.get(name=tag, user_id=current_user.id)
-	notes = Note.objects.filter(tag_id=tag_id)
+	notes = Note.objects.filter(tag_id=tag_id).order_by('-date_updated')
 
 	for note in notes:
 		if len(note.body) > 40:
 			note.body = f"{note.body[:40]}..."
+		if len(note.title) > 20:
+			note.title = f"{note.title[:20]}..."
 		tag_name = Tag.objects.get(id=note.tag_id)
 		note.tag_id = tag_name
 
@@ -166,6 +170,8 @@ class SearchResultsView(LoginRequiredMixin, ListView):
 		for note in context:
 			if len(note.body) > 40:
 				note.body = f"{note.body[:40]}..."
+			if len(note.title) > 20:
+				note.title = f"{note.title[:20]}..."
 			tag_name = Tag.objects.get(id=note.tag_id)
 			note.tag_id = tag_name
 			
