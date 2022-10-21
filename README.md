@@ -7,8 +7,8 @@ NotInk is a beautiful and easy to use online tool that helps you document your d
 
 # NotInk Preview
 
-![NotInk_Home_Page](NotInk_HomePage.jpg)
-![NotInk_Detail_Page](NotInk_DetailPage.jpg)
+![NotInk_Home_Page](https://raw.githubusercontent.com/DanAdewole/NotInk/main/static/images/NotInk_HomePage.jpg)
+![NotInk_Detail_Page](https://raw.githubusercontent.com/DanAdewole/NotInk/main/static/images/NotInk_DetailPage.jpg)
 
 # Guidelines on how to run locally 💻
 
