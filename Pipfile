@@ -12,6 +12,7 @@ psycopg2 = "*"
 whitenoise = "*"
 django-extensions = "*"
 python-decouple = "*"
+gunicorn = "*"
 
 [dev-packages]
 
