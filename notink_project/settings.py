@@ -29,7 +29,7 @@ SECRET_KEY = config("SECRET_KEY", default='django-insecure-!r_-u^4lfu&i7zrsr$v-q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://notink-production.up.railway.app/']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'notink-production.up.railway.app']
 
 
 # Application definition
