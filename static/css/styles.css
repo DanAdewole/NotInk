@@ -57,13 +57,14 @@ h1 {
 }
 
 .footer-icon {
-	margin: 2.5% 1.5% 2.5%;
+	margin: 5px 3.5px 5px;
 	color: #f1ea9b;
 	width: 50px;
 }
 
 .footer-text {
 	font-size: large;
+	margin-top: 0.5rem;
 }
 
 
@@ -97,7 +98,7 @@ h1 {
 }
 
 .auth-form-detail {
-	padding: 7px 35px 5px;
+	padding: 7px 50px 5px;
 }
 
 .auth-form-link {
@@ -112,11 +113,24 @@ h1 {
 /* Error Page */
 
 .error-page {
-	background-color: #fad670;
+	background-color: #f5b603;
 	text-align: center;
-	justify-content: center;
+	color: #fff;
 }
 
+.error-page-heading {
+	padding: 80px 0 3px;
+	font-size: 12rem;
+	font-weight: 900;
+}
+
+.error-page-body {
+	margin: auto;
+	width: 500px;
+	font-size: 1.5rem;
+	font-weight: 500;
+	padding-bottom: 25px;
+}
 
 /* Media Queries */
 
@@ -135,11 +149,17 @@ h1 {
 
 	.heading {
 		text-align: center;
+		margin: 0;
 	}
 
 	.subheading {
 		text-align: center;
 	}
+
+	.footer {
+		padding: 25px 0 20px;
+	}
+
 /* 
 	.starting-btn {
 		margin: auto;

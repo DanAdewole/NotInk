@@ -57,13 +57,14 @@ h1 {
 }
 
 .footer-icon {
-	margin: 2.5% 1.5% 2.5%;
+	margin: 5px 3.5px 5px;
 	color: #f1ea9b;
 	width: 50px;
 }
 
 .footer-text {
 	font-size: large;
+	margin-top: 0.5rem;
 }
 
 
@@ -97,7 +98,7 @@ h1 {
 }
 
 .auth-form-detail {
-	padding: 7px 35px 5px;
+	padding: 7px 50px 5px;
 }
 
 .auth-form-link {
@@ -148,11 +149,17 @@ h1 {
 
 	.heading {
 		text-align: center;
+		margin: 0;
 	}
 
 	.subheading {
 		text-align: center;
 	}
+
+	.footer {
+		padding: 25px 0 20px;
+	}
+
 /* 
 	.starting-btn {
 		margin: auto;
