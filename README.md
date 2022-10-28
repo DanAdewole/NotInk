@@ -11,6 +11,9 @@ NotInk is a beautiful and easy to use online tool that helps you document your d
 ![NotInk_List_Page](https://raw.githubusercontent.com/DanAdewole/NotInk/main/staticfiles/images/NotInk_ListPage.jpg)
 ![NotInk_Detail_Page](https://raw.githubusercontent.com/DanAdewole/NotInk/main/staticfiles/images/NotInk_DetailPage.jpg)
 
+## View active site
+Click this [link](https://notink-production.up.railway.app) to view the app online
+
 # Guidelines on how to run locally 💻
 
 ## Clone this repository
