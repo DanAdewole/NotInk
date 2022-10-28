@@ -15,24 +15,32 @@
 
 			<div class="row g-0">
 
-				{% for note in search_results %}
-				<div class="col-lg-4 col-md-6">
-					<a href="{% url 'notes_detail' note.pk %}" class="card border-0 card-list">
-						<div class="card-header">
-							<h4>{{ note.title }}</h4>
-						</div>
-						<div class="card-body">
-							<div class="card-text">
-									{{ note.body }}
-								<div class="text-muted d-flex justify-content-between notes-option">
-									<div class="notes-category">{{ note.date_updated|naturaltime }}</div>
-									<span class="notes-category">{{ note.tag_id }}</span>
+				{% if search_results|length == 0 %}
+
+					<p class="empty-data text-muted">No notes found...</p>
+
+				{% else %}		
+
+					{% for note in search_results %}
+					<div class="col-lg-4 col-md-6">
+						<a href="{% url 'notes_detail' note.pk %}" class="card border-0 card-list">
+							<div class="card-header">
+								<h4>{{ note.title }}</h4>
+							</div>
+							<div class="card-body">
+								<div class="card-text">
+										{{ note.body }}
+									<div class="text-muted d-flex justify-content-between notes-option">
+										<div class="notes-category">{{ note.date_updated|naturaltime }}</div>
+										<span class="notes-category">{{ note.tag_id }}</span>
+									</div>
 								</div>
 							</div>
-						</div>
-					</a>
-				</div>
-				{% endfor %}
+						</a>
+					</div>
+					{% endfor %}
+
+				{% endif %}
 
 			</div>
 		</div>

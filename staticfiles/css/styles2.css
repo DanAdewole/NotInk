@@ -377,8 +377,9 @@ body {
 }
 
 .empty-data {
+	padding: 30px 20px;
 	font-size: 2rem;
-	padding: 3rem 0;
+	font-weight: 600;
 }
 
 
@@ -412,6 +413,12 @@ body {
 /* Media Queries */
 
 @media (max-width: 748px) {
+
+	.sidebar.active ~ .home-content {
+		width: calc(100% - 78px);
+		left: 78px;
+	}
+	
 	.card-detail {
 		margin: 45px 20px 0;
 	}
@@ -419,9 +426,5 @@ body {
 	.detail-button {
 		margin: 20px 20px 0;
 		color: #fff;
-	}
-
-	.empty-data {
-		padding: 3rem 2rem;
 	}
 } 
