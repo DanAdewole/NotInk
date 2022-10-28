@@ -68,6 +68,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'notink_project.urls'
 
+# deploment on railway needs this for forms to work
 CSRF_TRUSTED_ORIGINS = ['https://*.notink-production.up.railway.app','https://*.127.0.0.1']
 
 TEMPLATES = [

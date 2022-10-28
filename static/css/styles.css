@@ -16,7 +16,7 @@ h1 {
 }
 
 .sign-up {
-	margin-left: 9px;
+	margin-left: 0;
 }
 
 .home-section {
@@ -34,16 +34,16 @@ h1 {
 }
 
 .heading {
-	margin: 5rem 0 0 1.5rem;
+	margin: 5rem 0.5rem 0 1.5rem;
 }
 
 .subheading {
-	margin: 0.5rem 0 1.5rem;
+	margin: 1.5rem 0.5rem 0 1.5rem;
 	font-size: 1.4rem;
 }
 
 .starting-btn {
-	margin: 2rem 0 1.5rem;
+	margin: 2rem 0.5rem 0 1.5rem;
 	text-align: center;
 }
 
@@ -52,19 +52,25 @@ h1 {
 
 .footer {
 	text-align: center;
-	padding: 3% 0 3%;
+	padding: 3rem 0 3rem;
 	background-color: #f5b603;
 }
 
 .footer-icon {
-	margin: 5px 3.5px 5px;
+	margin: 5px 5px 5px;
+	color: #ffffff;
+	width: 40px;
+}
+
+.footer-icon:hover {
 	color: #f1ea9b;
-	width: 50px;
 }
 
 .footer-text {
 	font-size: large;
-	margin: 0.5rem 0 1.5rem;
+	font-weight: 500;
+	margin: auto;
+	margin-top: 0.7rem;
 	color: #fff;
 }
 
@@ -81,25 +87,29 @@ h1 {
 }
 
 .auth-form-image {
-	height: 60px;
-	margin: 80px 200px 75px;
-	text-align: center;
+	height: 63px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
 }
 
 .auth-form-description {
-	/* border: 1px solid rgb(195, 195, 195);
-	border-radius: 15px; */
-	padding: 15px;
+	/* padding: 15px; */
 	margin-bottom: 60px;
 }
 
 .auth-form-header {
+	display: block;
 	text-align: center;
-	padding: 30px 30px 20px;
+	padding: 50px 30px 20px;
 }
 
 .auth-form-detail {
-	padding: 7px 50px 5px;
+	border: 1px solid rgb(195, 195, 195);
+	border-radius: 12px;
+	padding: 20px 18px 18px;
+	margin: 3px 22px 5px;
 }
 
 .auth-form-link {
@@ -150,16 +160,32 @@ h1 {
 
 	.heading {
 		text-align: center;
-		margin: 0;
+		margin: 3rem 0.5rem 1.5rem;
 	}
 
 	.subheading {
 		text-align: center;
+		margin: 0.5rem 0.5rem 1.5rem;
+	}
+
+	.image-title {
+		width: 100%;
 	}
 
 	.footer {
-		padding: 35px 0 30px;
+		padding: 35px 0 35px;
 	}
+
+	.auth-form {
+		margin: auto;
+		width: 375px;
+	}
+
+	.footer-text {
+		width: 55%;
+		font-weight: 400;
+	}
+
 
 /* 
 	.starting-btn {
