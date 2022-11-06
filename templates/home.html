@@ -14,7 +14,7 @@
 					{% if user.is_authenticated %}
 					<a class="btn btn-warning btn-lg starting-btn" href="{% url 'notes_list' %}">View Notes</a>
 					{% else %}
-					<a class="btn btn-warning btn-lg starting-btn" href="{% url 'login' %}">Get Started</a>
+					<a class="btn btn-warning btn-lg starting-btn" href="{% url 'signup' %}">Get Started</a>
 					{% endif %}
 				</div>
 
