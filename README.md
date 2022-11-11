@@ -91,7 +91,7 @@ python manage.py runserver
 ```
 
 # Contribution
-Are you interested in making any contributions to the project? See [contibution.md](CONTRIBUTING.md) to get started. If you love this project, kindly give it a star ⭐ and share it with others. 😃
+Are you interested in making any contributions to the project? See [contribution.md](CONTRIBUTING.md) to get started. If you love this project, kindly give it a star ⭐ and share it with others. 😃
 
 # License
 This project is under an [MIT LICENSE](LICENSE)
