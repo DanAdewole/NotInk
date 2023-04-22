@@ -17,7 +17,7 @@ Click this [link](https://notink-production.up.railway.app) to view the app onli
 # Guidelines on how to run locally 💻
 
 ## Clone this repository
-
+First clone this repository from Github to your local machine
 ```
 git clone https://github.com/DanAdewole/NotInk.git
 ```
@@ -74,7 +74,7 @@ python manage.py migrate
 ```
 
 ## Create a new superuser
-Run hte following command to create a new superuser
+Run the following command to create a new superuser
 ```
 python manage.py createsuperuser
 ```
